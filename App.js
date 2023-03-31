@@ -21,15 +21,13 @@ const App = () => {
   var pickedCal = '';
 
   useEffect(() => {
-    try {
-      if (Platform.OS === 'android') {
-        (async function androidCalendar() {
-          calendars = await RNCalendarEvents.findCalendars();
-          pickedCal = calendars.find(r => r.isPrimary && r.allowsModifications);
-        })();
-      }
-    } catch (error) {
-      console.log('asdasd', error);
+    if (Platform.OS === 'android') {
+      (async function androidCalendar() {
+        calendars = await RNCalendarEvents?.findCalendars();
+        pickedCal = calendars?.find(
+          r => r?.isPrimary && r?.allowsModifications,
+        );
+      })();
     }
   }, []);
 
@@ -74,8 +72,8 @@ const App = () => {
 
       RNCalendarEvents.saveEvent(eventTitle, {
         calendarId: Platform.OS === 'android' ? pickedCal?.id : undefined,
-        startDate: new Date(1662607800000).toISOString(),
-        endDate: new Date(1662611400000).toISOString(),
+        startDate: new Date().toISOString(),
+        endDate: new Date().toISOString(),
         location: eventLocation,
         // recurrence: 'daily',
         // url: 'asdasdasda',
@@ -190,7 +188,7 @@ const App = () => {
           <Text> Save Event </Text>
         </TouchableOpacity> */}
         <Button title="Save Event" onPress={() => createEvent()} />
-        <Button title='Fetch Event' onPress={() => fetchEvent('950')} />
+        <Button title="Fetch Event" onPress={() => fetchEvent('80')} />
 
         {/* <Button title='Fetch Event' onPress={() => fetchEvent('80')} />
         <Button title='Fetch all Event' onPress={() => fetchAllEvent()} />
