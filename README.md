@@ -1,3 +1,5 @@
+# Integrating Calendar Events in a React Native App
+
 In this tutorial, we'll explore how to integrate calendar events functionality into a React Native application. We'll cover features such as creating events, fetching events, and handling permissions using the [react-native-calendar-events](https://www.npmjs.com/package/react-native-calendar-events) library.
 
 #### Check out the demo video showcasing the features of add to calendar in action!
